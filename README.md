@@ -35,3 +35,12 @@ We use a very abstract definition of an artifact — just a `.tar` file.
 
 4.  Deployment scripts can download the artifact from this repository and use it to deploy to the target environment.
 
+5.  This project contains multiple components:
+
+    1.  A binary storage, hosted on Firebase Cloud Storage.
+
+    2.  A database, hosted on Firebase Cloud Firestore.
+
+    3.  An API that can be used to access the binary storage and database.
+
+    4.  A CLI that can be invoked using `npx` that will interface with the API.
