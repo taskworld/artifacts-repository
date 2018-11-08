@@ -44,3 +44,44 @@ We use a very abstract definition of an artifact — just a `.tar` file.
     3.  An API that can be used to access the binary storage and database.
 
     4.  A CLI that can be invoked using `npx` that will interface with the API.
+
+## Data model
+
+### API key
+
+- Used to interface with the API
+
+### Project
+
+- Identified by key
+
+- Contains artifacts
+
+### Artifact
+
+- Belongs to a project
+
+- Identified by key
+
+- Key should be monotonically increasing (for easy ordering)
+
+- Attributes:
+
+  | Attribute | Info |
+  | --------- | ---- |
+  | sha | Commit ID associated with the artifact. |
+  | branch | Branch name when artifact was built. |
+  | buildURL | URL to the build. In form of `https://circleci.com/gh/owner/repo/build/number` (`$CIRCLE_BUILD_URL`) |
+  | pullRequest | URL to the pull request. In form of `https://github.com/owner/repo/pull/number` (`$CIRCLE_PULL_REQUEST`) |
+  | timestamp | Timestamp when the artifact was uploaded. |
+  | duration | How long it took to build the artifact. |
+  | tarball | Storage identifier of the artifact. In form of `gs://bucket/path/to/file.tar.gz` |
+
+
+
+
+
+
+
+
+
